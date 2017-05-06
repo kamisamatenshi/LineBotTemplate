@@ -56,8 +56,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 												     +message.Text+message.Text+message.Text+message.Text+message.Text+message.Text
 												     +message.Text+message.Text+message.Text+message.Text+message.Text+message.Text
 												     +message.Text+message.Text+message.Text+message.Text+message.Text+message.Text
-												     +message.Text+message.Text+message.Text+message.Text+message.Text+message.Text
-												     +message.Text+message.Text+message.Text+message.Text+message.Text)).Do(); err != nil {
+												     +message.Text+message.Text+message.Text+message.Text+message.Text
+											)).Do(); err != nil {
 					log.Print(err)
 				}
 			}
