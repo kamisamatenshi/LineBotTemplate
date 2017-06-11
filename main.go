@@ -26,6 +26,7 @@ import (
 )
 
 var silent bool = false
+var bailei bool = false
 var timeFormat = "2006/01/01 15:04:05"
 var tellTimeInterval int = 15
 var echoMap = make(map[string]bool)
