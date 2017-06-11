@@ -166,19 +166,19 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bailei = false
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("燕是神啦")).Do()
 				} else if bailei != true {
-					strings.Contains(message.Text, "祥") {  
+					strings.Contains(message.Text, "祥")  
 					        bot.ReplyMessage(replyToken, linebot.NewTextMessage("死變態一個啊")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("他把我妹妹上了")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("就是在那邊魯的那位")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("精盡人亡了")).Do()
-					}
+				
 				} else if bailei != false {
-					strings.Contains(message.Text, "燕燕") {  
+					strings.Contains(message.Text, "燕燕")  
 					        bot.ReplyMessage(replyToken, linebot.NewTextMessage("是這裡的群主")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("10抽全5星")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("傳說中的歐王之神")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("拜燕燕得5星")).Do()
-					}
+					
 				}
 
 			case *linebot.ImageMessage :
