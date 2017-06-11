@@ -26,7 +26,6 @@ import (
 )
 
 var silent bool = false
-var bailei bool = false
 var timeFormat = "2006/01/01 15:04:05"
 var tellTimeInterval int = 15
 var echoMap = make(map[string]bool)
@@ -143,38 +142,27 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				//	log.Print(err)
 				//}
 				
-				if strings.Contains(message.Text, "你閉嘴") {
+				if strings.Contains(message.Text, "燕是神") {
 					silent = true
-					bot.ReplyMessage(replyToken, linebot.NewTextMessage("QQ")).Do()
-				} else if "說吧" == message.Text {
+					bot.ReplyMessage(replyToken, linebot.NewTextMessage("拜見燕燕")).Do()
+				} else if "欺負祥" == message.Text {
 					silent = false
-					bot.ReplyMessage(replyToken, linebot.NewTextMessage("麥克風測試，1、2、3... OK")).Do()
+					bot.ReplyMessage(replyToken, linebot.NewTextMessage("欺負祥開始ww")).Do()
 				} else if "time1" == message.Text {
 					tellTimeInterval = 1					
 				} else if "time15" == message.Text {
 					tellTimeInterval = 15
 				} else if strings.Contains(message.Text, "現在幾點")  {
 					tellTime(replyToken, true)
-				} else if silent != true {
-					bot.ReplyMessage(replyToken, linebot.NewTextMessage("嗯嗯，呵呵，我要去洗澡了")).Do()
-					bot.ReplyMessage(replyToken, linebot.NewTextMessage("> //////////////////// <")).Do()
-				} else if silent != false {
-					bot.ReplyMessage(replyToken, linebot.NewTextMessage("我就是要學你說話"+message.Text)).Do()
-				} else if "欺負祥" == message.Text {
-					bailei = true
-					bot.ReplyMessage(replyToken, linebot.NewTextMessage("祥要哭咯")).Do()
-				} else if "燕是神" == message.Text{
-					bailei = false
-					bot.ReplyMessage(replyToken, linebot.NewTextMessage("燕是神啦")).Do()
-				} else if bailei != true {
-					strings.Contains(message.Text, "祥")  
+				
+				
+				} else if silent != false {  
 					        bot.ReplyMessage(replyToken, linebot.NewTextMessage("死變態一個啊")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("他把我妹妹上了")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("就是在那邊魯的那位")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("精盡人亡了")).Do()
 				
-				} else if bailei != false {
-					strings.Contains(message.Text, "燕燕")  
+				} else if silent != true {
 					        bot.ReplyMessage(replyToken, linebot.NewTextMessage("是這裡的群主")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("10抽全5星")).Do()
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("傳說中的歐王之神")).Do()
