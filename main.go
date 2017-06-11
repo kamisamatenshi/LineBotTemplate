@@ -157,7 +157,30 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if silent != true {
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("嗯嗯，呵呵，我要去洗澡了")).Do()
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("> //////////////////// <")).Do()
+				} else if silent != false {
+					bot.ReplyMessage(replyToken, linebot.NewTextMessage("我就是要學你說話"+message.Text)).Do()
+				} else if "欺負祥開始" == message.Text{
+					bailei = true 
+					bot.ReplyMessage(replyToken, linebot.NewTextMessage("盡情的欺負這個死變態吧")).Do()
+				} else if "拜見燕燕" == message.Text{
+					bailei = false
+					bot.ReplyMessage(replyToken, linebot.NewTextMessage("拜見燕燕大神")).Do()
+				} else if bailei != true {
+					strings.Contains(message.Text, "祥")  {
+						bot.ReplyMessage(replyToken, linebot.NewTextMessage("死變態一個啊")).Do()
+						bot.ReplyMessage(replyToken, linebot.NewTextMessage("他把我妹妹上了")).Do()
+						bot.ReplyMessage(replyToken, linebot.NewTextMessage("就是在那邊魯的那位")).Do()
+						bot.ReplyMessage(replyToken, linebot.NewTextMessage("精盡人亡了")).Do()
+					}
+				} else if bailei != false {
+					strings.Contains(message.Text, "燕")  {
+					        bot.ReplyMessage(replyToken, linebot.NewTextMessage("這裡的群主")).Do()
+						bot.ReplyMessage(replyToken, linebot.NewTextMessage("10抽全5星")).Do()
+						bot.ReplyMessage(replyToken, linebot.NewTextMessage("傳說中的歐王之神")).Do()
+						bot.ReplyMessage(replyToken, linebot.NewTextMessage("拜燕燕得5星")).Do()
+					}
 				}
+
 			case *linebot.ImageMessage :
 				log.Print("ReplyToken[" + replyToken + "] ImageMessage[" + message.ID + "] OriginalContentURL(" + message.OriginalContentURL + "), PreviewImageURL(" + message.PreviewImageURL + ")" )
 				if silent != true {
