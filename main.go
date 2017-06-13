@@ -143,10 +143,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				//}
 				
 				if strings.Contains(message.Text, "羈絆吧！") {
-					silent = false
+					silent = true
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("開始羈絆咯")).Do()
 				} else if "。" == message.Text {
-					silent = true
+					silent = false
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("我生氣了不羈絆")).Do()
 				} else if "time6" == message.Text {
 					tellTimeInterval = 6					
@@ -154,7 +154,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					tellTimeInterval = 8
 				} else if "time10" == message.Text {
 					tellTimeInterval = 10
-				} else if strings.Contains(message.Text, "來吧")  {
+				} else if "time1" == message.Text {
+					tellTimeInterval = 10
+			        } else if strings.Contains(message.Text, "來吧")  {
 				 	tellTime(replyToken, true)
 				} else if strings.Contains(message.Text, "-1")   {
 					tellTime(replyToken, true)
