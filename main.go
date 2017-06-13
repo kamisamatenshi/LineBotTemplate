@@ -155,7 +155,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if "time10" == message.Text {
 					tellTimeInterval = 10
 				} else if "time1" == message.Text {
-					tellTimeInterval = 10
+					tellTimeInterval = 1
+				} else if "time2" == message.Text {
+					tellTimeInterval = 2
 			        } else if strings.Contains(message.Text, "來吧")  {
 				 	tellTime(replyToken, true)
 				} else if strings.Contains(message.Text, "-1")   {
