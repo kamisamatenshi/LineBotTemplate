@@ -40,10 +40,10 @@ func tellTime(replyToken string, doTell bool){
 	
 	if doTell {
 		log.Println("現在時間(台北): " + nowString)
-		bot.ReplyMessage(replyToken, linebot.NewTextMessage("現在時間(台北): " + nowString)).Do()
+		bot.ReplyMessage(replyToken, linebot.NewTextMessage("戰友募集中！讓我們一起並肩作戰，齊心協力突破難關！「激究極(馳騁五丈原蒼之大將軍)」https://static.tw.monster-strike.com/sns/?pass_code=NTYwNzQxMTcw&f=line↑點擊這個網址馬上一起連線作戰！")).Do()
 	} else if silent != true {
 		log.Println("自動報時(台北): " + nowString)
-		bot.PushMessage(replyToken, linebot.NewTextMessage("自動報時(台北): " + nowString)).Do()
+		bot.PushMessage(replyToken, linebot.NewTextMessage("戰友募集中！讓我們一起並肩作戰，齊心協力突破難關！「激究極(馳騁五丈原蒼之大將軍)」https://static.tw.monster-strike.com/sns/?pass_code=NTYwNzQxMTcw&f=line↑點擊這個馬上一起連線作戰！")).Do()
 	} else {
 		log.Println("tell time misfired")
 	}
@@ -142,33 +142,25 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				//	log.Print(err)
 				//}
 				
-				if strings.Contains(message.Text, "燕是神") {
-					silent = true
-					bot.ReplyMessage(replyToken, linebot.NewTextMessage("拜見燕燕")).Do()
-				} else if "欺負祥" == message.Text {
+				if strings.Contains(message.Text, "羈絆吧！") {
 					silent = false
-					bot.ReplyMessage(replyToken, linebot.NewTextMessage("欺負祥開始ww")).Do()
-				} else if "time1" == message.Text {
-					tellTimeInterval = 1					
-				} else if "time15" == message.Text {
-					tellTimeInterval = 15
-				} else if strings.Contains(message.Text, "現在幾點")  {
+					bot.ReplyMessage(replyToken, linebot.NewTextMessage("開始羈絆咯")).Do()
+				} else if "。" == message.Text {
+					silent = true
+					bot.ReplyMessage(replyToken, linebot.NewTextMessage("我生氣了不羈絆")).Do()
+				} else if "time6" == message.Text {
+					tellTimeInterval = 6					
+				} else if "time8" == message.Text {
+					tellTimeInterval = 8
+				} else if "time10" == message.Text {
+					tellTimeInterval = 10
+				} else if strings.Contains(message.Text, "來吧")  {
+				 	tellTime(replyToken, true)
+				} else if strings.Contains(message.Text, "-1")   {
 					tellTime(replyToken, true)
-				
-				
-				} else if silent != false {  
-					        bot.ReplyMessage(replyToken, linebot.NewTextMessage("死變態一個啊")).Do()
-						bot.ReplyMessage(replyToken, linebot.NewTextMessage("他把我妹妹上了")).Do()
-						bot.ReplyMessage(replyToken, linebot.NewTextMessage("就是在那邊魯的那位")).Do()
-						bot.ReplyMessage(replyToken, linebot.NewTextMessage("精盡人亡了")).Do()
-				
-				} else if silent != true {
-					        bot.ReplyMessage(replyToken, linebot.NewTextMessage("是這裡的群主")).Do()
-						bot.ReplyMessage(replyToken, linebot.NewTextMessage("10抽全5星")).Do()
-						bot.ReplyMessage(replyToken, linebot.NewTextMessage("傳說中的歐王之神")).Do()
-						bot.ReplyMessage(replyToken, linebot.NewTextMessage("拜燕燕得5星")).Do()
-					
 				}
+				
+				
 
 			case *linebot.ImageMessage :
 				log.Print("ReplyToken[" + replyToken + "] ImageMessage[" + message.ID + "] OriginalContentURL(" + message.OriginalContentURL + "), PreviewImageURL(" + message.PreviewImageURL + ")" )
