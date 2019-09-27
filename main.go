@@ -232,11 +232,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("QQ")).Do()
 				} else if strings.Contains(message.Text, "現在幾點") {
 					tellTime(replyToken, true)
-				}else if strings.Contains(message.Text, "try") {
-					bot.PushMessage(bailei, linebot.NewTextMessage("please")).Do()
 				} else if "說吧" == message.Text {
 					silentMap[sourceId] = false
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("麥克風測試，1、2、3... OK")).Do()
+				}else if "try" == message.Text{
+					
+					  bot.PushMessage(bailei, linebot.NewTextMessage(user_tenshi.Displayname)).Do()
+											
 				}else if "洗版開始密碼010220" == message.Text {
 					washMap[sourceId] = true
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("準備完畢")).Do()
@@ -463,6 +465,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text)).Do()
+					 
 					}
 				}else if washMap[sourceId] == true {
 					if highCMap[sourceId] == false{
