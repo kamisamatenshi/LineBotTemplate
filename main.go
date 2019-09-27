@@ -476,7 +476,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if err2 != nil {
 							log.Print(err2)
 					}
-					bot.PushMessage(bailei, linebot.NewTextMessage(profile.DisplayName + "在"+profile2.DisplayName+"說"+message.Text)).Do()
+					bot.PushMessage(bailei, linebot.NewTextMessage(message.Text)).Do()
 					}
 				}else if washMap[sourceId] == true {
 					if highCMap[sourceId] == false{
