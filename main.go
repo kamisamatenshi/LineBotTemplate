@@ -33,6 +33,7 @@ var user_yaoming = "U3aaab6c6248bb38f194134948c60f757"
 var user_jackal = "U3effab06ddf5bcf0b46c1c60bcd39ef5"
 var user_shane = "U2ade7ac4456cb3ca99ffdf9d7257329a"
 var user_tenshi = "U1afa490979eb023cf3ed0db8c233f61e"
+var bailei = "Cf68cc85fe5239f3f036c61df2fc42eb1"
 // Global Settings
 var channelSecret = os.Getenv("CHANNEL_SECRET")
 var channelToken = os.Getenv("CHANNEL_TOKEN")
@@ -232,7 +233,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "現在幾點") {
 					tellTime(replyToken, true)
 				}else if strings.Contains(message.Text, "try") {
-					bot.PushMessage(user_tenshi, linebot.NewTextMessage("please")).Do()
+					bot.PushMessage(bailei, linebot.NewTextMessage("please")).Do()
 				} else if "說吧" == message.Text {
 					silentMap[sourceId] = false
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("麥克風測試，1、2、3... OK")).Do()
