@@ -459,11 +459,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if err != nil {
 						log.Print(err)
 					}
-					profile2,err2:=bot.GetProfile(source.GroupID).Do()
-					if err2 != nil {
-							log.Print(err2)
-					}
-					bot.PushMessage(bailei, linebot.NewTextMessage(message.Text+profile.DisplayName+profile2.DisplayName)).Do()
+					bot.PushMessage(bailei, linebot.NewTextMessage(message.Text+profile.DisplayName)).Do()
 					
 				}else if washMap[sourceId] == true {
 					if highCMap[sourceId] == false{
