@@ -235,17 +235,15 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if "說吧" == message.Text {
 					silentMap[sourceId] = false
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("麥克風測試，1、2、3... OK")).Do()
-				}else if "try" == message.Text{
+				} else if "try" == message.Text{
 					profile, err := bot.GetProfile(source.UserID).Do()
 					if err != nil {
 						log.Print(err)
 					} else if _, err := bot.PushMessage(bailee, linebot.NewTextMessage(profile.DisplayName + ": "+message.Text)).Do(); err != nil {
 							log.Print(err)
 					}
-				}
-				
-					 // bot.PushMessage(bailei, linebot.NewTextMessage(user_tenshi.Displayname)).Do()
-											
+				}				
+					 // bot.PushMessage(bailei, linebot.NewTextMessage(user_tenshi.Displayname)).Do()								
 				}else if "洗版開始密碼010220" == message.Text {
 					washMap[sourceId] = true
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("準備完畢")).Do()
