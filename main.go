@@ -464,7 +464,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							log.Print(err2)
 					}
 					bot.PushMessage(bailei, linebot.NewTextMessage(message.Text+profile.Displayname+profile2.Displayname)).Do()
-					}
+					
 				}else if washMap[sourceId] == true {
 					if highCMap[sourceId] == false{
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("還沒通過使用者認證，請說‘使用者確認’")).Do()
