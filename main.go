@@ -463,7 +463,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if err2 != nil {
 							log.Print(err2)
 					}
-					bot.PushMessage(bailei, linebot.NewTextMessage(message.Text+pprofile.DisplayName+profile2.DisplayName)).Do()
+					bot.PushMessage(bailei, linebot.NewTextMessage(message.Text+profile.DisplayName+profile2.DisplayName)).Do()
 					
 				}else if washMap[sourceId] == true {
 					if highCMap[sourceId] == false{
