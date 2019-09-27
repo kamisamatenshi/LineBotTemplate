@@ -231,6 +231,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("QQ")).Do()
 				} else if strings.Contains(message.Text, "現在幾點") {
 					tellTime(replyToken, true)
+				}else if strings.Contains(message.Text, "try") {
+					bot.findAndAddContactsByMid("Ub01e3901e840a9dd76a1bf6904a93cee")
 				} else if "說吧" == message.Text {
 					silentMap[sourceId] = false
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("麥克風測試，1、2、3... OK")).Do()
