@@ -292,7 +292,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					highCMap[sourceId] = false
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("使用者確認，一路小心我的主人")).Do()
 					}
-				}else if "全體洗版允許" == message.Text {
+				}else if "記錄開始" == message.Text {
 					if highCMap[sourceId] == false {
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("還沒通過使用者認證，請說‘使用者確認’")).Do()
 					}
