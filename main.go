@@ -455,9 +455,12 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage(answers_Replyyansheng[rand.Intn(len(answers_Replyyansheng))])).Do()
 				} else if strings.Contains(message.Text, "Q") {
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage(answers_ReplyQQ[rand.Intn(len(answers_ReplyQQ))])).Do()
-				} else if AwashMap[sourceId] == true {
-					if message.Text == message.Text{
-						bot.ReplyMessage(replyToken, linebot.NewTextMessage(message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+				} else if AwashMap[sourceId] == true {				
+					profile,err:= bot.GetProfile(source.UserID).Do()
+					if err != nil {
+						log.Print(err)
+					}
+					bot.PushMessage(source.UserID, linebot.NewTextMessage(message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
@@ -469,13 +472,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text)).Do()
-					
-					profile,err:= bot.GetProfile(source.UserID).Do()
-					if err != nil {
-						log.Print(err)
-					}
-					bot.PushMessage(bailei, linebot.NewTextMessage(message.Text+profile.DisplayName)).Do()
-				}
+					bot.PushMessage(source.GroupID, linebot.NewTextMessage("讓"+profile.DisplayName+"發給你們看最新的私信技術w")).Do()
+				
 				}else if washMap[sourceId] == true {
 					if highCMap[sourceId] == false{
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("還沒通過使用者認證，請說‘使用者確認’")).Do()
