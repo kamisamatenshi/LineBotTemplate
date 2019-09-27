@@ -237,7 +237,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("麥克風測試，1、2、3... OK")).Do()
 				} else if "try" == message.Text {
 					profile, err := bot.GetProfile(source.UserID).Do()
-					bot.PushMessage(bailee, linebot.NewTextMessage(profile.DisplayName + ": "+message.Text)).Do()
+					bot.PushMessage(bailei, linebot.NewTextMessage(profile.DisplayName + ": "+message.Text)).Do()
 					
 								
 					 // bot.PushMessage(bailei, linebot.NewTextMessage(user_tenshi.Displayname)).Do()								
