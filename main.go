@@ -309,6 +309,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage("主人確認，已關閉全體使用洗版功能")).Do()
 					}
 				}else if "profile" == message.Text {
+					
 					if source.UserID != "" {
 						profile, err := bot.GetProfile(source.UserID).Do()
 						if err != nil {
@@ -455,12 +456,26 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "Q") {
 					bot.ReplyMessage(replyToken, linebot.NewTextMessage(answers_ReplyQQ[rand.Intn(len(answers_ReplyQQ))])).Do()
 				} else if AwashMap[sourceId] == true {
+					if message.Text == message.Text{
+						bot.ReplyMessage(replyToken, linebot.NewTextMessage(message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text)).Do()
+					
 					profile,err:= bot.GetProfile(source.UserID).Do()
 					if err != nil {
 						log.Print(err)
 					}
 					bot.PushMessage(bailei, linebot.NewTextMessage(message.Text+profile.DisplayName)).Do()
-					
+				}
 				}else if washMap[sourceId] == true {
 					if highCMap[sourceId] == false{
 						bot.ReplyMessage(replyToken, linebot.NewTextMessage("還沒通過使用者認證，請說‘使用者確認’")).Do()
