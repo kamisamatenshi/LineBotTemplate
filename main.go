@@ -34,6 +34,7 @@ var user_jackal = "U3effab06ddf5bcf0b46c1c60bcd39ef5"
 var user_shane = "U2ade7ac4456cb3ca99ffdf9d7257329a"
 var user_tenshi = "U1afa490979eb023cf3ed0db8c233f61e"
 var bailei = "Cf68cc85fe5239f3f036c61df2fc42eb1"
+var zy = "Ub042a4c587e2ea76b71fa4498da49e38"
 // Global Settings
 var channelSecret = os.Getenv("CHANNEL_SECRET")
 var channelToken = os.Getenv("CHANNEL_TOKEN")
@@ -460,7 +461,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if err != nil {
 						log.Print(err)
 					}
-					bot.PushMessage(userId, linebot.NewTextMessage(message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
+					bot.PushMessage(zy, linebot.NewTextMessage(message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
 												    message.Text+message.Text+message.Text+message.Text+message.Text+message.Text+
